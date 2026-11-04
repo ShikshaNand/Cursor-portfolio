@@ -546,7 +546,14 @@ function ProjectDialog({ project, onClose }) {
 
 function App() {
   const reduced = useReducedMotion();
-  const [motionOn, setMotionOn] = useState(() => { try { return localStorage.getItem('renando-motion') !== 'off'; } catch { return true; } });
+  const [motionOn, setMotionOn] = useState(() => {
+    try {
+      localStorage.removeItem('renando-motion');
+      return localStorage.getItem('snm-portfolio-motion') !== 'off';
+    } catch {
+      return true;
+    }
+  });
   const enabled = motionOn && !reduced;
   const [project, setProject] = useState(null);
   const { scrollYProgress } = useScroll();
@@ -554,7 +561,13 @@ function App() {
 
   useEffect(() => { document.documentElement.dataset.motion = enabled ? 'on' : 'off'; }, [enabled]);
 
-  const toggle = () => { setMotionOn(!motionOn); try { localStorage.setItem('renando-motion', motionOn ? 'off' : 'on'); } catch {} };
+  const toggle = () => {
+    setMotionOn(v => {
+      const next = !v;
+      try { localStorage.setItem('snm-portfolio-motion', next ? 'on' : 'off'); } catch {}
+      return next;
+    });
+  };
   const close = React.useCallback(() => setProject(null), []);
 
   return <MotionContext.Provider value={enabled}>
