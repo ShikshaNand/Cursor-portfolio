@@ -10,6 +10,8 @@ You are an expert creative front-end developer. Produce a working project that r
 - **Typography:** **Anton** (display font for headers & metrics), **Manrope** (body font 400-800), **Caveat** (handwritten accent). Loaded via Google Fonts in `index.html`.
 - **Motion:** Framer Motion 12 with custom cubic-bezier easing `[0.22, 1, 0.36, 1]`.
 - **Interactions:**
+  - **Dynamic Typewriter Hero Role:** Character-by-character typewriter animation cycling through 5 technical identities with a blinking red cursor (`SOFTWARE DEVELOPER`, `CREATIVE TECHNOLOGIST`, `FULL STACK WEB DEVELOPER`, `IOT & EMBEDDED SYSTEMS BUILDER`, `GENERATIVE AI EXPLORER`).
+  - **Swarm Rebuild Integration:** Multi-agent cursor simulation (`Swarm Build`) assembling the full DOM, calibrated to build all 11 verified certifications sequentially without skipping.
   - Magnetic custom cursor ring & dot (`CustomCursor`).
   - Dual-layer transparent studio portrait with scroll parallax.
   - Infinite auto-scrolling brand logo rail (`BrandStrip`).
@@ -167,17 +169,10 @@ Thumbs.db
 ```javascript
 import { build } from 'esbuild';
 
-await build({
-  entryPoints: ['src/app.jsx'],
-  bundle: true,
-  minify: true,
-  sourcemap: true,
-  outfile: 'Asset/dist/app.js',
-  loader: { '.jsx': 'jsx' },
-  jsx: 'automatic',
-  target: ['es2020'],
-  define: { 'process.env.NODE_ENV': '"production"' }
-});
+await Promise.all([
+  build({ entryPoints: ['src/app.jsx'], bundle: true, minify: true, sourcemap: true, outfile: 'Asset/dist/app.js', loader: { '.jsx': 'jsx' }, jsx: 'automatic', target: ['es2020'], define: { 'process.env.NODE_ENV': '"production"' } }),
+  build({ entryPoints: ['src/styles.css'], minify: true, sourcemap: true, outfile: 'Asset/dist/app.css' })
+]);
 
 console.log('Portfolio built: index.html + Asset/dist/app.js + Asset/dist/app.css');
 ```

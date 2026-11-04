@@ -23,6 +23,8 @@ This portfolio combines editorial typography, dark cinematic aesthetics, and flu
 
 - **Design Philosophy:** Minimalist cinema dark palette (`#090909`, `#ef4151`, `#f2efeb`) with high-contrast typography (`Anton` display + `Manrope` body).
 - **Physics & Motion:** 60fps buttery animations, spring-loaded magnetic cursors, and custom cubic-bezier easing `[0.22, 1, 0.36, 1]`.
+- **Dynamic Typewriter Headline:** Interactive character-by-character typewriter effect in the hero section cycling through 5 engineering roles with an authentic terminal-style blinking cursor.
+- **Swarm Rebuild Integration:** Multi-agent cursor simulation (`Swarm Build`) assembling the live DOM, calibrated to build all 11 verified certifications in full sequence.
 - **Zero Heavy Framework Overhead:** Bundled via `esbuild` into high-speed static production assets (`Asset/dist/app.js` + `Asset/dist/app.css`).
 - **Automated Asset Sync:** Built-in CDN download engine (`scripts/download_assets.mjs`) pulling all 28 high-res certificates, studio cutouts, and icons directly from GitHub Raw.
 
