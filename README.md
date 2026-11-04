@@ -160,7 +160,7 @@ In Vercel Project Settings > **Domains**, add `snmofficial.in`:
 - **Portfolio:** [snmofficial.in](https://snmofficial.in)
 - **GitHub:** [@ShikshaNand](https://github.com/ShikshaNand)
 - **Email:** contact@snmofficial.in
-- **Location:** Fatehabad, Haryana, India
+- **Location:** India
 
 ---
 

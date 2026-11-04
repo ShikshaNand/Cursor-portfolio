@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useContext, createContext } from 'react';
 import { createRoot } from 'react-dom/client';
 import { motion, AnimatePresence, MotionConfig, useScroll, useTransform, useSpring, useReducedMotion, useMotionValueEvent, useAnimationFrame, useInView } from 'framer-motion';
-import { ArrowUpRight, ArrowDown, ArrowRight, Play, X, Menu, Mail, Phone, MapPin, Linkedin, Globe, Download, Pause, Search, Plus, Minus, ChevronLeft, ChevronRight, ExternalLink, Sparkles } from 'lucide-react';
+import { ArrowUpRight, ArrowDown, ArrowRight, Play, X, Menu, Mail, Phone, MapPin, Linkedin, Globe, Pause, Search, Plus, Minus, ChevronLeft, ChevronRight, ExternalLink, Sparkles } from 'lucide-react';
 import archive from './data/projects.json';
 import brands from './data/brands.json';
 import './styles.css';
@@ -15,7 +15,7 @@ const experiences = [
   { date: '2025 – PRESENT', title: 'Freelance IT Support Specialist', place: 'Hardware & System Engineering', text: 'Diagnosed and resolved complex hardware failures (Motherboard, SSD, RAM) for 20+ local clients. Assembled custom desktop PCs, upgraded components, resolved boot failures, configured operating systems, and solved network connectivity issues.' },
   { date: 'DEC 2025 – FEB 2026', title: 'Campus Ambassador', place: 'eDC IIT Delhi (Entrepreneurship Development Cell)', text: 'Selected as Campus Ambassador driving outreach and student coordination for BECon ’26, the annual entrepreneurship conclave of IIT Delhi. Spearheaded student outreach, managed campus coordination, and built regional awareness.' },
   { date: '2025 · RESEARCH', title: 'IoT & Security Researcher', place: 'Embedded Systems & Hardware', text: 'Configured ESP32 WROOM module for ethical network analysis and protocol experimentation. Explored firmware implementations including Marauder to analyze WiFi/Bluetooth communication protocols, with hands-on wiring and hardware flashing.' },
-  { date: '2024 – PRESENT', title: 'BCA Scholar & Developer', place: 'M.M. College, Fatehabad (C.D.L.U, Sirsa)', text: 'Pursuing Bachelor of Computer Applications with dedicated coursework in core programming (Java, Python, C/C++), database systems, web architecture, and cloud technology.' },
+  { date: '2024 – PRESENT', title: 'BCA Scholar & Developer', place: 'M.M. College (C.D.L.U, Sirsa)', text: 'Pursuing Bachelor of Computer Applications with dedicated coursework in core programming (Java, Python, C/C++), database systems, web architecture, and cloud technology.' },
   { date: '2024 · HONORS', title: 'Senior Secondary Graduate', place: 'Govt. Model Sanskriti Sr. Sec. School', text: 'Completed 12th Commerce under the CBSE Board, developing strong analytical thinking, quantitative analysis, and project planning fundamentals.' },
 ];
 
@@ -168,11 +168,11 @@ function Hero({ onProject }) {
     <motion.div className="hero-intro" style={enabled ? { y: copyY } : {}} initial={enabled ? { opacity: 0, x: -35 } : false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.35, ease: EASE }}>
       <p className="handwriting">Hello, I’m</p><h1 className="display">SHIKSHA NAND<span>.</span></h1><p className="hero-role">SOFTWARE DEVELOPER &<br />CREATIVE TECHNOLOGIST</p><p className="hero-description">Motivated BCA student with a strong foundation in Java, Python, Web Development, and Generative AI tools. Passionate about solving real-world challenges.</p>
       <Magnetic href="#portfolio" className="primary-link">Explore My Work <ArrowDown size={17}/></Magnetic>
-      <span className="hero-location"><MapPin size={12} /> FATEHABAD, INDIA</span>
+      <span className="hero-location"><MapPin size={12} /> INDIA</span>
     </motion.div>
     <motion.div className="hero-side" initial={enabled ? { opacity: 0, x: 30 } : false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.55, ease: EASE }}>
       <div className="hero-manifesto"><span className="crosshair" aria-hidden="true">✳</span><p>Code with purpose.<br />Built to make an impact.</p></div>
-      <div className="hero-stats"><div><span className="display">20<span>+</span></span><p>HARDWARE & CLIENT<br/>SOLUTIONS</p></div><div><span className="display">5<span>+</span></span><p>PRODUCTION &<br/>IOT PROJECTS</p></div><div className="hero-award-stat"><span className="display">11<span>+</span></span><a href="#awards" aria-label="View Shiksha Nand honors">VERIFIED HONORS & CERTS<ArrowUpRight size={12}/></a></div><a href="./Asset/cv/Shiksha_Nand_Resume.pdf" download><Download size={16}/><span>DOWNLOAD RESUME</span></a></div>
+      <div className="hero-stats"><div><span className="display">20<span>+</span></span><p>HARDWARE & CLIENT<br/>SOLUTIONS</p></div><div><span className="display">5<span>+</span></span><p>PRODUCTION &<br/>IOT PROJECTS</p></div><div className="hero-award-stat"><span className="display">11<span>+</span></span><a href="#awards" aria-label="View Shiksha Nand honors">VERIFIED HONORS & CERTS<ArrowUpRight size={12}/></a></div></div>
     </motion.div>
     <div className="hero-bottom"><button className="reel-button" onClick={() => onProject(featured[0])}><span className="play-circle"><Play size={12} fill="currentColor" /></span>VIEW FEATURED WORK<span className="muted">snmofficial.in</span></button><span className="hero-scroll">SCROLL TO DISCOVER <ArrowDown size={13}/></span><span className="edition">SHIKSHA NAND / 2024–2026</span></div>
   </section>;
@@ -330,7 +330,7 @@ function About() {
       <Reveal className="education-panel">
         <h3 className="panel-heading">EDUCATION & CORE SKILLS</h3>
         <p className="eyebrow accent">ACADEMIC BACKGROUND</p>
-        <div className="education-row"><strong>M.M. College, Fatehabad</strong><span>2024 – Present</span><p>Bachelor of Computer Applications (BCA) · Affiliated to C.D.L.U, Sirsa.</p></div>
+        <div className="education-row"><strong>M.M. College</strong><span>2024 – Present</span><p>Bachelor of Computer Applications (BCA) · Affiliated to C.D.L.U, Sirsa.</p></div>
         <div className="education-row"><strong>HKCL (Haryana Knowledge Corporation Ltd.)</strong><span>2024</span><p>HS-CIT (A+) · Haryana State Certificate in Information Technology (Advanced).</p></div>
         <div className="education-row"><strong>Govt. Model Sanskriti Sr. Sec. School</strong><span>2024</span><p>Senior Secondary (12th), Commerce · CBSE Board.</p></div>
         <div className="education-row"><strong>Govt. Model Sanskriti Sr. Sec. School</strong><span>2022</span><p>Secondary (10th) · HBSE Board.</p></div>
@@ -374,7 +374,7 @@ function Journey({ onProject }) {
   const [open, setOpen] = useState(0);
 
   return <section id="experience" className="journey section-wrap">
-    <Reveal className="section-heading"><div><span className="eyebrow">03 / EXPERIENCE & MILESTONES</span><h2>CONTINUOUS LEARNING & DELIVERY<span className="accent">.</span></h2></div><a className="text-link" href="./Asset/cv/Shiksha_Nand_Resume.pdf" download>DOWNLOAD RESUME<Download size={16}/></a></Reveal>
+    <Reveal className="section-heading"><div><span className="eyebrow">03 / EXPERIENCE & MILESTONES</span><h2>CONTINUOUS LEARNING & DELIVERY<span className="accent">.</span></h2></div></Reveal>
     <div className="journey-grid">
       <div className="experience-list">
         {experiences.map((job, i) => <Reveal className={`experience-row ${open === i ? 'is-open' : ''}`} key={job.title}>
@@ -431,7 +431,7 @@ function Contact({ onProject }) {
         <a href="https://www.linkedin.com/in/shikshanand" target="_blank" rel="noopener noreferrer"><Linkedin/><span><small>LINKEDIN</small>linkedin.com/in/shikshanand</span><ArrowUpRight size={16}/></a>
         <a href="https://snmofficial.in" target="_blank" rel="noopener noreferrer"><Globe/><span><small>PORTFOLIO WEBSITE</small>snmofficial.in</span><ArrowUpRight size={16}/></a>
         <a href="tel:+9190506XXXXX"><Phone/><span><small>PHONE / WHATSAPP</small>+91 90506-XXXXX</span><ArrowUpRight size={16}/></a>
-        <div><MapPin/><span><small>LOCATION</small>Fatehabad, India</span></div>
+        <div><MapPin/><span><small>LOCATION</small>India</span></div>
       </Reveal>
       <Reveal className="contact-reel" delay={0.2}>
         <button onClick={() => onProject(featured[0])} aria-label="View Shiksha Nand portfolio project">
