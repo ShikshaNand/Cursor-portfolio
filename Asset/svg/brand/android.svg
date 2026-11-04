@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" fill="none">
+    <path d="M10 24h18v10c0 1.5-1.2 2.7-2.7 2.7H12.7C11.2 36.7 10 35.5 10 34V24z" fill="#3DDC84"/>
+    <path d="M10 22c0-5 4-9 9-9s9 4 9 9H10z" fill="#3DDC84"/>
+    <circle cx="15" cy="18" r="1.5" fill="#090909"/>
+    <circle cx="23" cy="18" r="1.5" fill="#090909"/>
+    <text x="36" y="31" font-family="'Manrope', sans-serif" font-weight="700" font-size="17" fill="#f2efeb">Android</text>
+  </svg>

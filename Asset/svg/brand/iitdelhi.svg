@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 50" fill="none">
+    <circle cx="20" cy="25" r="14" stroke="#ef4151" stroke-width="2.5" fill="none"/>
+    <polygon points="20,16 26,29 14,29" fill="#ef4151"/>
+    <text x="42" y="24" font-family="'Manrope', sans-serif" font-weight="800" font-size="14" fill="#f2efeb">eDC IIT DELHI</text>
+    <text x="42" y="36" font-family="'Manrope', sans-serif" font-weight="500" font-size="9" fill="#a09c9a">BECon '26 PARTNER</text>
+  </svg>

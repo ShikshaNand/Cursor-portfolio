@@ -1,0 +1,171 @@
+[
+  {
+    "type": "website",
+    "title": "Personal Portfolio Website",
+    "role": "Designer & Full-Stack Developer",
+    "year": "2026",
+    "category": "Web",
+    "description": "Designed, developed, and deployed the official personal portfolio website (snmofficial.in). Features responsive architecture, SEO optimization, interactive project highlights, and clean modern aesthetics.",
+    "media": "https://snmofficial.in",
+    "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "type": "render",
+    "title": "ESP32 Network Security & IoT Exploration",
+    "role": "Embedded Systems & Security Researcher",
+    "year": "2025",
+    "category": "IoT & Security",
+    "description": "Configured ESP32 WROOM microcontroller module for ethical hacking and network analysis learning. Explored firmware implementations like Marauder to understand WiFi/Bluetooth protocols with custom hardware wiring and flashing.",
+    "media": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+    "renders": [
+      {
+        "layout": "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=1200&q=80",
+        "solid": "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=1200&q=80",
+        "material": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+        "lighting": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+        "final": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+      }
+    ]
+  },
+  {
+    "type": "image",
+    "title": "Android Multi-Game Application",
+    "role": "Mobile App Developer",
+    "year": "2025",
+    "category": "Android",
+    "description": "Developed a functional Android application featuring classic games including Tic-Tac-Toe. Built in Java using Android Studio with robust state management, modular component architecture, and responsive touch controls.",
+    "media": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "type": "image",
+    "title": "eDC IIT Delhi Campus Ambassador Honors",
+    "role": "BECon '26 Ambassador Certificate",
+    "year": "2026",
+    "category": "Certifications",
+    "description": "Official Certificate of Participation and Recognition from eDC IIT Delhi for remarkable dedication and significant impact as a Campus Ambassador for BECon '26.",
+    "media": "./Asset/img/certificates/shiksha_nand_cert.png",
+    "image": "./Asset/img/certificates/shiksha_nand_cert.png"
+  },
+  {
+    "type": "image",
+    "title": "HS-CIT (A+) Certification",
+    "role": "Haryana State Certificate in IT (Advanced)",
+    "year": "2024",
+    "category": "Certifications",
+    "description": "Completed the official HS-CIT (A+) course from Haryana Knowledge Corporation Limited (HKCL, Govt. of Haryana). Gained thorough proficiency in computer fundamentals, MS Office automation suites, cybersecurity awareness, and modern digital workplace tools.",
+    "media": "./Asset/img/certificates/hkcl_logo.png",
+    "image": "./Asset/img/certificates/hkcl_logo.png"
+  },
+  {
+    "type": "image",
+    "title": "Oracle Certified Foundation Associate",
+    "role": "Official Global Certification",
+    "year": "2025",
+    "category": "Certifications",
+    "description": "Oracle Certified Foundations Associate Certificate of Recognition in Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate, verified by Oracle University.",
+    "media": "./Asset/img/certificates/oracle_ai_cert.png",
+    "image": "./Asset/img/certificates/oracle_ai_cert.png"
+  },
+  {
+    "type": "image",
+    "title": "Google Foundations of Cybersecurity",
+    "role": "Google Career Certificate via Coursera",
+    "year": "2026",
+    "category": "Certifications",
+    "description": "Professional certificate authorized by Google verifying successful completion and mastery of core cybersecurity foundations, threat detection, and security compliance.",
+    "media": "./Asset/img/certificates/coursera_cybersecurity_cert.png",
+    "image": "./Asset/img/certificates/coursera_cybersecurity_cert.png"
+  },
+  {
+    "type": "image",
+    "title": "Career Essentials in Generative AI",
+    "role": "Microsoft & LinkedIn Learning",
+    "year": "2025",
+    "category": "Certifications",
+    "description": "Official Learning Path credential awarded by Microsoft and LinkedIn covering Microsoft Copilot, Generative AI models, and Responsible AI implementation.",
+    "media": "./Asset/img/certificates/microsoft_genai_cert.png",
+    "image": "./Asset/img/certificates/microsoft_genai_cert.png"
+  },
+  {
+    "type": "image",
+    "title": "What Is Generative AI?",
+    "role": "LinkedIn Learning & NASBA CPE",
+    "year": "2025",
+    "category": "Certifications",
+    "description": "Certified completion of Generative AI principles, foundation models, and prompt workflows by LinkedIn Learning with National Registry of CPE Sponsors recognition.",
+    "media": "./Asset/img/certificates/what_is_generative_ai_cert.png",
+    "image": "./Asset/img/certificates/what_is_generative_ai_cert.png"
+  },
+  {
+    "type": "image",
+    "title": "Learning Microsoft 365 Copilot for Work",
+    "role": "Microsoft Credential",
+    "year": "2025",
+    "category": "Certifications",
+    "description": "Certified completion of workflow acceleration, prompt engineering, and intelligent office productivity integration with Microsoft 365 Copilot.",
+    "media": "./Asset/img/certificates/microsoft_copilot_cert.png",
+    "image": "./Asset/img/certificates/microsoft_copilot_cert.png"
+  },
+  {
+    "type": "image",
+    "title": "Streamlining Your Work with Microsoft Copilot",
+    "role": "LinkedIn Learning Credential",
+    "year": "2025",
+    "category": "Certifications",
+    "description": "Certified mastery in boosting productivity, accelerating routine workflows, and leveraging Microsoft Copilot for business efficiency.",
+    "media": "./Asset/img/certificates/streamlining_microsoft_copilot_cert.png",
+    "image": "./Asset/img/certificates/streamlining_microsoft_copilot_cert.png"
+  },
+  {
+    "type": "image",
+    "title": "Generative AI: Evolution of Online Search",
+    "role": "LinkedIn Learning Credential",
+    "year": "2025",
+    "category": "Certifications",
+    "description": "Specialized coursework credential examining AI-driven search engine architecture, thoughtful information synthesis, and business AI applications.",
+    "media": "./Asset/img/certificates/generative_ai_online_search_cert.png",
+    "image": "./Asset/img/certificates/generative_ai_online_search_cert.png"
+  },
+  {
+    "type": "image",
+    "title": "Ethics in the Age of Generative AI",
+    "role": "LinkedIn Learning Credential",
+    "year": "2025",
+    "category": "Certifications",
+    "description": "Specialized coursework credential covering AI ethics, data privacy, bias mitigation, and responsible generative AI deployment.",
+    "media": "./Asset/img/certificates/ethics_ai_cert.png",
+    "image": "./Asset/img/certificates/ethics_ai_cert.png"
+  },
+  {
+    "type": "image",
+    "title": "Introduction to Artificial Intelligence",
+    "role": "LinkedIn Learning Credential",
+    "year": "2025",
+    "category": "Certifications",
+    "description": "Foundational artificial intelligence credential covering algorithms, machine learning concepts, neural networks, and modern AI paradigms.",
+    "media": "./Asset/img/certificates/intro_ai_cert.png",
+    "image": "./Asset/img/certificates/intro_ai_cert.png"
+  },
+  {
+    "type": "image",
+    "title": "Enterprise Hardware Diagnostics & Repair",
+    "role": "Freelance IT Support Specialist",
+    "year": "2024 – 2026",
+    "category": "IT Support",
+    "description": "Diagnosed and resolved complex hardware failures (Motherboard, SSD, RAM) for 20+ local clients. Assembled custom desktop PCs, upgraded components, and resolved boot failures.",
+    "media": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1200&q=80",
+    "image": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "type": "website",
+    "title": "Tech & Creative Blog Writing",
+    "role": "Content Creator & Author",
+    "year": "2025",
+    "category": "Web",
+    "description": "Authoring tech articles and tutorials covering ethical hacking tools, microcontroller programming, and PC hardware diagnostic guides published on personal blogs.",
+    "media": "https://snmofficial.in",
+    "image": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80"
+  }
+]

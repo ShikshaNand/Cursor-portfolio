@@ -1,0 +1,14 @@
+[
+  { "file": "iitdelhi.svg", "name": "eDC IIT Delhi" },
+  { "file": "oracle.svg", "name": "Oracle" },
+  { "file": "google.svg", "name": "Google Cloud" },
+  { "file": "microsoft.svg", "name": "Microsoft" },
+  { "file": "hkcl.svg", "name": "HKCL" },
+  { "file": "java.svg", "name": "Java" },
+  { "file": "python.svg", "name": "Python" },
+  { "file": "android.svg", "name": "Android Studio" },
+  { "file": "github.svg", "name": "GitHub" },
+  { "file": "wordpress.svg", "name": "WordPress" },
+  { "file": "esp32.svg", "name": "ESP32 Microcontroller" },
+  { "file": "vscode.svg", "name": "VS Code" }
+]

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50" fill="none">
+    <path d="M25 12l-10 9 6 4-6 4 10 9 5-2V14l-5-2z" fill="#007ACC"/>
+    <path d="M15 21l-7-5-2 1v16l2 1 7-5v-8z" fill="#0065A9"/>
+    <text x="38" y="31" font-family="'Manrope', sans-serif" font-weight="700" font-size="17" fill="#f2efeb">VS Code</text>
+  </svg>
