@@ -438,8 +438,12 @@ function Contact({ onProject }) {
   const send = e => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
-    const text = `Hello Shiksha Nand, my name is ${data.get('name')}.\n\nProject / Inquiry Type: ${data.get('type')}\nDetails: ${data.get('message')}`;
-    window.open(`https://wa.me/919050670506?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+    const name = data.get('name') || '';
+    const type = data.get('type') || '';
+    const message = data.get('message') || '';
+    const subject = encodeURIComponent(`Project Inquiry: ${type} - ${name}`);
+    const body = encodeURIComponent(`Hello Shiksha Nand,\n\nMy name is: ${name}\nInquiry Type: ${type}\n\nProject Details / Message:\n${message}\n\n---\nSent via Portfolio (snmofficial.in)`);
+    window.location.href = `mailto:Shikshanand.in@gmail.com?subject=${subject}&body=${body}`;
     setSent(true);
   };
 
@@ -488,8 +492,8 @@ function Contact({ onProject }) {
             </select>
           </label>
           <label className="brief-message">Message<textarea name="message" required rows="3" placeholder="Tell me about your requirements, project timeline, or role..." maxLength="3000"/></label>
-          <button className="solid-button" type="submit">Open in WhatsApp <ArrowUpRight size={18}/></button>
-          <p className="form-note" role="status">{sent ? 'Message draft prepared in WhatsApp. Press send there to start!' : 'Your message will open directly in WhatsApp for quick conversation.'}</p>
+          <button className="solid-button" type="submit">Open in Mail <Mail size={18}/></button>
+          <p className="form-note" role="status">{sent ? 'Email draft prepared in your mail app. Press send to reach out!' : 'Your message will open directly in your mail app with pre-filled details.'}</p>
         </form>
       </details>
     </Reveal>
