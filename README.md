@@ -29,28 +29,6 @@ This portfolio combines editorial typography, dark cinematic aesthetics, and flu
 
 ---
 
-## ✦ Key Highlights & Verified Credentials
-
-### 1. Leadership & Conclaves
-- **Campus Ambassador — eDC IIT Delhi:** Selected campus coordinator driving outreach and student coordination for **BECon '26**, the annual entrepreneurship conclave of IIT Delhi.
-
-### 2. 11+ Verified Certifications
-| Credential / Course | Issuing Body | Year | Asset |
-|---|---|---|---|
-| **Campus Ambassador Recognition** | eDC IIT Delhi (BECon '26) | 2026 | `shiksha_nand_cert.png` |
-| **HS-CIT (A+)** (IT Advanced) | HKCL (Haryana Knowledge Corp) | 2024 | `hkcl_logo.png` |
-| **Foundations of Cybersecurity** | Google (Coursera) | 2026 | `coursera_cybersecurity_cert.png` |
-| **Oracle Cloud Certified Foundation Associate** | Oracle University | 2025 | `oracle_ai_cert.png` |
-| **Career Essentials in Generative AI** | Microsoft & LinkedIn | 2025 | `microsoft_genai_cert.png` |
-| **What Is Generative AI?** | LinkedIn Learning | 2025 | `what_is_generative_ai_cert.png` |
-| **Streamlining Work with Microsoft Copilot** | Microsoft & LinkedIn | 2025 | `streamlining_microsoft_copilot_cert.png` |
-| **Generative AI: Evolution of Online Search** | LinkedIn Learning | 2025 | `generative_ai_online_search_cert.png` |
-| **Learning Microsoft 365 Copilot for Work** | Microsoft & LinkedIn | 2025 | `microsoft_copilot_cert.png` |
-| **Introduction to Artificial Intelligence** | LinkedIn Learning | 2025 | `intro_ai_cert.png` |
-| **Ethics in the Age of Generative AI** | LinkedIn Learning | 2025 | `ethics_ai_cert.png` |
-
----
-
 ## ✦ Project Structure
 
 ```text
@@ -160,5 +138,5 @@ This repository is pre-configured with `vercel.json` for static output:
 ---
 
 <div align="center">
-<sub>Designed & Built by Shiksha Nand · 2024–2026</sub>
+<sub>Designed & Built by Shiksha Nand</sub>
 </div>

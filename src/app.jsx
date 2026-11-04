@@ -274,7 +274,7 @@ function Hero({ onProject }) {
       <div className="hero-manifesto"><span className="crosshair" aria-hidden="true">✳</span><p>Code with purpose.<br />Built to make an impact.</p></div>
       <div className="hero-stats"><div><span className="display">20<span>+</span></span><p>HARDWARE & CLIENT<br/>SOLUTIONS</p></div><div><span className="display">5<span>+</span></span><p>PRODUCTION &<br/>IOT PROJECTS</p></div><div className="hero-award-stat"><span className="display">11<span>+</span></span><a href="#awards" aria-label="View Shiksha Nand honors">VERIFIED HONORS & CERTS<ArrowUpRight size={12}/></a></div></div>
     </motion.div>
-    <div className="hero-bottom"><button className="reel-button" onClick={() => onProject(featured[0])}><span className="play-circle"><Play size={12} fill="currentColor" /></span>VIEW FEATURED WORK<span className="muted">snmofficial.in</span></button><span className="hero-scroll">SCROLL TO DISCOVER <ArrowDown size={13}/></span><span className="edition">SHIKSHA NAND / 2024–2026</span></div>
+    <div className="hero-bottom"><button className="reel-button" onClick={() => onProject(featured[0])}><span className="play-circle"><Play size={12} fill="currentColor" /></span>VIEW FEATURED WORK<span className="muted">snmofficial.in</span></button><span className="hero-scroll">SCROLL TO DISCOVER <ArrowDown size={13}/></span><span className="edition">SHIKSHA NAND</span></div>
   </section>;
 }
 
