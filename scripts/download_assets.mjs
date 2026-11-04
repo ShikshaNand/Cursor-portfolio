@@ -5,7 +5,7 @@ import { Readable } from 'node:stream';
 
 // Base raw URL pointing to ShikshaNand's GitHub repository
 const GITHUB_USER = process.env.GITHUB_USER || 'ShikshaNand';
-const GITHUB_REPO = process.env.GITHUB_REPO || 'portfolio';
+const GITHUB_REPO = process.env.GITHUB_REPO || 'Cursor-portfolio';
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
 
 const BASE_URL = process.env.ASSET_BASE_URL || `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}`;
