@@ -10,4 +10,6 @@ package-lock.json
 Thumbs.db
 *.log
 * s.svg
+*.pdf
+Asset/cv/
 

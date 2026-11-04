@@ -11,7 +11,6 @@ const requiredFiles = [
   'Asset/dist/app.css',
   'Asset/img/shikshanand-portrait.png',
   'Asset/img/favicon.svg',
-  'Asset/cv/Shiksha_Nand_Resume.pdf',
   'Asset/img/certificates/shiksha_nand_cert.png',
   'Asset/img/certificates/hkcl_logo.png',
   'Asset/img/certificates/oracle_ai_cert.png',

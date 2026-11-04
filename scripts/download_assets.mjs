@@ -14,7 +14,6 @@ const filesToDownload = [
   // Core Visual Assets
   { url: `${BASE_URL}/Asset/img/shikshanand-portrait.png`, dest: 'Asset/img/shikshanand-portrait.png' },
   { url: `${BASE_URL}/Asset/img/favicon.svg`, dest: 'Asset/img/favicon.svg' },
-  { url: `${BASE_URL}/Asset/cv/Shiksha_Nand_Resume.pdf`, dest: 'Asset/cv/Shiksha_Nand_Resume.pdf' },
 
   // 11 Verified Certificates & Credential Emblems
   { url: `${BASE_URL}/Asset/img/certificates/shiksha_nand_cert.png`, dest: 'Asset/img/certificates/shiksha_nand_cert.png' },

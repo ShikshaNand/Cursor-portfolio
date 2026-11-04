@@ -27,8 +27,6 @@ You are an expert creative front-end developer. Produce a working project that r
 
 ```text
 ├── Asset/
-│   ├── cv/
-│   │   └── Shiksha_Nand_Resume.pdf
 │   ├── dist/
 │   │   ├── app.js                           # Compiled by npm run build
 │   │   └── app.css                          # Compiled by npm run build
@@ -201,7 +199,6 @@ const filesToDownload = [
   // Studio Portrait Cutout & Favicon
   { url: `${BASE_URL}/Asset/img/shikshanand-portrait.png`, dest: 'Asset/img/shikshanand-portrait.png' },
   { url: `${BASE_URL}/Asset/img/favicon.svg`, dest: 'Asset/img/favicon.svg' },
-  { url: `${BASE_URL}/Asset/cv/Shiksha_Nand_Resume.pdf`, dest: 'Asset/cv/Shiksha_Nand_Resume.pdf' },
 
   // 11 Verified Certificates
   { url: `${BASE_URL}/Asset/img/certificates/shiksha_nand_cert.png`, dest: 'Asset/img/certificates/shiksha_nand_cert.png' },

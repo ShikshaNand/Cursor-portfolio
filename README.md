@@ -55,8 +55,6 @@ This portfolio combines editorial typography, dark cinematic aesthetics, and flu
 ```text
 Cursor-portfolio/
 ├── Asset/
-│   ├── cv/
-│   │   └── Shiksha_Nand_Resume.pdf          # Official resume
 │   ├── dist/
 │   │   ├── app.js                           # Bundled React + Framer app
 │   │   └── app.css                          # Production styles
