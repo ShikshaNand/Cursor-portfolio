@@ -2,7 +2,6 @@
 
 <div align="center">
 
-[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-snmofficial.in-e32b3c?style=for-the-badge&logo=google-chrome&logoColor=white)](https://snmofficial.in)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Cursor--portfolio-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ShikshaNand/Cursor-portfolio)
 [![React 19](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-FF0055?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
@@ -139,9 +138,6 @@ This repository is pre-configured with `vercel.json` for static output:
    - **Output Directory:** `.`
 5. Click **Deploy**.
 
-### Custom Domain (`snmofficial.in`)
-In Vercel Project Settings > **Domains**, add `snmofficial.in`:
-- **Type:** `A` record `76.76.21.21` or `CNAME` pointing to `cname.vercel-dns.com`.
 
 ---
 
@@ -157,9 +153,8 @@ In Vercel Project Settings > **Domains**, add `snmofficial.in`:
 
 ## ✦ Connect with Shiksha Nand
 
-- **Portfolio:** [snmofficial.in](https://snmofficial.in)
 - **GitHub:** [@ShikshaNand](https://github.com/ShikshaNand)
-- **Email:** contact@snmofficial.in
+- **Email:** [Shikshanand.in@gmail.com](mailto:Shikshanand.in@gmail.com)
 - **Location:** India
 
 ---
