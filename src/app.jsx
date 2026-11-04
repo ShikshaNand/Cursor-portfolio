@@ -6,6 +6,33 @@ import archive from './data/projects.json';
 import brands from './data/brands.json';
 import './styles.css';
 
+// Silence synthesized musical notes & piano melodies while keeping subtle UI sound effects intact
+if (typeof window !== 'undefined') {
+  const muteMusicOscillators = (Ctx) => {
+    if (!Ctx || !Ctx.prototype) return;
+    const origCreateOsc = Ctx.prototype.createOscillator;
+    if (!origCreateOsc) return;
+    Ctx.prototype.createOscillator = function() {
+      const osc = origCreateOsc.apply(this, arguments);
+      const origConnect = osc.connect;
+      osc.connect = function(dest) {
+        try {
+          const silenceGain = osc.context.createGain();
+          silenceGain.gain.value = 0;
+          origConnect.call(osc, silenceGain);
+          silenceGain.connect(dest);
+          return dest;
+        } catch (_) {
+          return origConnect.apply(osc, arguments);
+        }
+      };
+      return osc;
+    };
+  };
+  muteMusicOscillators(window.AudioContext);
+  muteMusicOscillators(window.webkitAudioContext);
+}
+
 const MotionContext = createContext(true);
 const EASE = [0.22, 1, 0.36, 1];
 const categories = ['All', 'Web', 'IoT & Security', 'Android', 'IT Support', 'Certifications'];
