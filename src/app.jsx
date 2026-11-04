@@ -107,7 +107,7 @@ function CustomCursor() {
 function Reveal({ children, className = '', delay = 0, as = 'div' }) {
   const enabled = useContext(MotionContext);
   const Component = motion[as];
-  return <Component className={className} initial={enabled ? { opacity: 0, y: 32 } : false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.12 }} transition={{ duration: enabled ? 0.75 : 0, delay, ease: EASE }}>{children}</Component>;
+  return <Component className={className} initial={enabled ? { opacity: 0, y: 32 } : false} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.05 }} transition={{ duration: enabled ? 0.75 : 0, delay, ease: EASE }}>{children}</Component>;
 }
 
 function MediaImage({ src, alt, className = '', priority = false, ...props }) {
@@ -150,15 +150,32 @@ function Header({ enabled, onToggle }) {
     window.addEventListener('keydown', onKey); return () => window.removeEventListener('keydown', onKey);
   }, []);
 
+  useEffect(() => {
+    if (!swarmRunning) return;
+    const checkSwarm = setInterval(() => {
+      if (!window.__swarmPlay) {
+        setSwarmRunning(false);
+        document.documentElement.dataset.swarm = 'off';
+        document.documentElement.classList.remove('swarm-active');
+      }
+    }, 500);
+    return () => clearInterval(checkSwarm);
+  }, [swarmRunning]);
+
   const triggerSwarm = () => {
     if (window.__swarmPlay) return;
     setSwarmRunning(true);
+    document.documentElement.dataset.swarm = 'on';
+    document.documentElement.classList.add('swarm-active');
+    window.dispatchEvent(new CustomEvent('snm:expand-all'));
     const s = document.createElement('script');
     s.src = 'https://www.duingzforge.site/kit/portfolio/swarm-play.js';
     s.onload = () => console.log('Swarm script loaded');
     s.onerror = () => {
       console.warn('External swarm script blocked, running embedded fallback');
       setSwarmRunning(false);
+      document.documentElement.dataset.swarm = 'off';
+      document.documentElement.classList.remove('swarm-active');
     };
     document.head.appendChild(s);
   };
@@ -179,6 +196,62 @@ function Header({ enabled, onToggle }) {
   </header>;
 }
 
+const typewriterRoles = [
+  'SOFTWARE DEVELOPER',
+  'CREATIVE TECHNOLOGIST',
+  'FULL STACK WEB DEVELOPER',
+  'IOT & EMBEDDED SYSTEMS BUILDER',
+  'GENERATIVE AI EXPLORER'
+];
+
+function TypewriterRole() {
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(typewriterRoles[0].length);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [blink, setBlink] = useState(false);
+  const enabled = useContext(MotionContext);
+
+  useEffect(() => {
+    const blinkInterval = setInterval(() => {
+      setBlink(b => !b);
+    }, 530);
+    return () => clearInterval(blinkInterval);
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
+    const current = typewriterRoles[index];
+
+    if (!isDeleting && subIndex === current.length) {
+      const pause = setTimeout(() => setIsDeleting(true), 1900);
+      return () => clearTimeout(pause);
+    }
+
+    if (isDeleting && subIndex === 0) {
+      setIsDeleting(false);
+      setIndex(i => (i + 1) % typewriterRoles.length);
+      return;
+    }
+
+    const speed = isDeleting ? 38 : 72;
+    const timer = setTimeout(() => {
+      setSubIndex(s => s + (isDeleting ? -1 : 1));
+    }, speed);
+
+    return () => clearTimeout(timer);
+  }, [subIndex, index, isDeleting, enabled]);
+
+  const currentRole = typewriterRoles[index];
+  const displayed = enabled ? currentRole.substring(0, subIndex) : currentRole;
+
+  return (
+    <p className="hero-role" aria-label={currentRole}>
+      <span className="typewriter-text">{displayed}</span>
+      <span className={`typewriter-cursor ${blink ? 'blink' : ''}`} aria-hidden="true">|</span>
+    </p>
+  );
+}
+
 function Hero({ onProject }) {
   const ref = useRef(null);
   const enabled = useContext(MotionContext);
@@ -193,7 +266,7 @@ function Hero({ onProject }) {
     <motion.div className="hero-title display" aria-hidden="true" style={enabled ? { y: titleY } : {}} initial={enabled ? { clipPath: 'inset(0 0 100% 0)' } : false} animate={{ clipPath: 'inset(0 0 0% 0)' }} transition={{ duration: 1.4, ease: EASE }}>PORTFOLIO</motion.div>
     <motion.div className="hero-portrait" style={enabled ? { y: portraitY, scale: portraitScale } : {}} initial={enabled ? { opacity: 0 } : false} animate={{ opacity: 1 }} transition={{ duration: 1.2, delay: 0.2 }}><img src="./Asset/img/shikshanand-portrait.png" alt="Shiksha Nand portrait with studio lighting" width="1024" height="1536" fetchPriority="high" /></motion.div>
     <motion.div className="hero-intro" style={enabled ? { y: copyY } : {}} initial={enabled ? { opacity: 0, x: -35 } : false} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.9, delay: 0.35, ease: EASE }}>
-      <p className="handwriting">Hello, I’m</p><h1 className="display">SHIKSHA NAND<span>.</span></h1><p className="hero-role">SOFTWARE DEVELOPER &<br />CREATIVE TECHNOLOGIST</p><p className="hero-description">Motivated BCA student with a strong foundation in Java, Python, Web Development, and Generative AI tools. Passionate about solving real-world challenges.</p>
+      <p className="handwriting">Hello, I’m</p><h1 className="display">SHIKSHA NAND<span>.</span></h1><TypewriterRole /><p className="hero-description">Motivated BCA student with a strong foundation in Java, Python, Web Development, and Generative AI tools. Passionate about solving real-world challenges.</p>
       <Magnetic href="#portfolio" className="primary-link">Explore My Work <ArrowDown size={17}/></Magnetic>
       <span className="hero-location"><MapPin size={12} /> INDIA</span>
     </motion.div>
@@ -283,6 +356,12 @@ function Awards({ onProject }) {
   const [expanded, setExpanded] = useState(false);
   const laurelPath = 'M48 94C8 68 9 30 35 5M22 61C8 60 3 49 3 44c12 0 19 6 19 17zm-5-19C5 35 6 23 8 19c11 5 13 14 9 23zm7-20C15 12 20 3 24 0c7 8 6 16 0 22zM31 79C17 79 8 70 7 64c13-2 22 4 24 15zm-3-18c-5-10-2-19 7-25 5 11 1 20-7 25zm10 24c-6-11-4-20 5-27 6 9 5 20-5 27z';
 
+  useEffect(() => {
+    const handleExpandAll = () => setExpanded(true);
+    window.addEventListener('snm:expand-all', handleExpandAll);
+    return () => window.removeEventListener('snm:expand-all', handleExpandAll);
+  }, []);
+
   return <section id="awards" className={`recognition section-wrap ${expanded ? 'awards-expanded' : ''}`}>
     <Reveal className="recognition-intro">
       <span className="eyebrow">HONORS & CERTIFICATIONS</span>
@@ -299,7 +378,7 @@ function Awards({ onProject }) {
     <div className="recognition-list">
       <div className="recognition-list-head"><span>KEY RECOGNITIONS & CERTIFICATIONS</span><span>2022 – 2026</span></div>
       <ol id="recognition-list">{awards.map((award, i) => <Reveal as="li" className={`recognition-row ${i > 2 ? 'additional-award' : ''}`} key={award.year + award.title} delay={i * .045}>
-        <span className="award-index">0{i + 1}</span>
+        <span className="award-index">{String(i + 1).padStart(2, '0')}</span>
         <div><h3>{award.title}</h3><p>{award.event}</p></div>
         <span className="award-year display">{award.year}</span>
       </Reveal>)}</ol>
