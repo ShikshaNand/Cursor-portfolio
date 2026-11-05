@@ -1,6 +1,10 @@
 # RECREATE THIS SITE AS A STATIC PROJECT: SHIKSHA NAND CINEMATIC PORTFOLIO
 
-You are an expert creative front-end developer. Produce a working project that reproduces the site below **exactly**: same layout, copy, visuals, motion, and interaction. React 19 + Framer Motion 12 bundled by esbuild into a plain static site (`index.html` + `Asset/`). No framework, router, or CSS library beyond what is listed.
+> **AI REPRODUCTION DIRECTIVE:**
+> When executing or generating from this blueprint, create **ONLY the strictly necessary files** listed in Section 2.
+> - **DO NOT** create redundant helper scripts, test files, temporary converters, or duplicate styling.
+> - **DO NOT** include any resume PDF files.
+> - All 28 media assets (transparent cutout portrait, 11 verified certificate PNGs, and tech stack SVGs) are automated via `npm run download` directly from GitHub Raw CDN.
 
 ---
 
@@ -11,7 +15,7 @@ You are an expert creative front-end developer. Produce a working project that r
 - **Motion:** Framer Motion 12 with custom cubic-bezier easing `[0.22, 1, 0.36, 1]`.
 - **Interactions:**
   - **Dynamic Typewriter Hero Role:** Character-by-character typewriter animation cycling through 5 technical identities with a blinking red cursor (`SOFTWARE DEVELOPER`, `CREATIVE TECHNOLOGIST`, `FULL STACK WEB DEVELOPER`, `IOT & EMBEDDED SYSTEMS BUILDER`, `GENERATIVE AI EXPLORER`).
-  - **Swarm Rebuild Integration:** Multi-agent cursor simulation (`Swarm Build`) assembling the full DOM, calibrated to build all 11 verified certifications sequentially without skipping.
+  - **Swarm Rebuild Automation:** Multi-agent cursor simulation (`Swarm Build`) assembling the live DOM, calibrated to build all 11 verified certifications in full sequence.
   - Magnetic custom cursor ring & dot (`CustomCursor`).
   - Dual-layer transparent studio portrait with scroll parallax.
   - Infinite auto-scrolling brand logo rail (`BrandStrip`).
@@ -25,71 +29,61 @@ You are an expert creative front-end developer. Produce a working project that r
 
 ---
 
-## 2. Directory Layout
+## 2. Minimal Strict Directory Layout
 
 ```text
+Cursor-portfolio/
 ├── Asset/
 │   ├── dist/
 │   │   ├── app.js                           # Compiled by npm run build
 │   │   └── app.css                          # Compiled by npm run build
 │   ├── img/
-│   │   ├── certificates/                    # 11 verified credentials
-│   │   │   ├── shiksha_nand_cert.png
-│   │   │   ├── hkcl_logo.png
-│   │   │   ├── oracle_ai_cert.png
-│   │   │   ├── coursera_cybersecurity_cert.png
-│   │   │   ├── microsoft_genai_cert.png
-│   │   │   ├── what_is_generative_ai_cert.png
-│   │   │   ├── streamlining_microsoft_copilot_cert.png
-│   │   │   ├── generative_ai_online_search_cert.png
-│   │   │   ├── microsoft_copilot_cert.png
-│   │   │   ├── intro_ai_cert.png
-│   │   │   └── ethics_ai_cert.png
-│   │   ├── shikshanand-portrait.png
-│   │   └── favicon.svg
-│   └── svg/brand/                           # 12 tech stack SVGs
+│   │   ├── certificates/                    # 11 verified credentials (automated via npm run download)
+│   │   ├── shikshanand-portrait.png         # Studio cutout (automated)
+│   │   └── favicon.svg                      # Custom vector favicon (automated)
+│   └── svg/brand/                           # 12 tech stack SVGs (automated)
 ├── scripts/
-│   ├── build.mjs
-│   ├── check.mjs
-│   └── download_assets.mjs
+│   ├── build.mjs                            # esbuild compiler for app.js & app.css
+│   ├── check.mjs                            # Verification script
+│   └── download_assets.mjs                  # Automated GitHub Raw CDN asset puller
 ├── src/
-│   ├── app.jsx
-│   ├── styles.css
+│   ├── app.jsx                              # Core React application
+│   ├── styles.css                           # Production CSS styles
 │   └── data/
-│       ├── projects.json
-│       └── brands.json
-├── .gitignore
-├── index.html
-├── live_preview.js
-├── package.json
-└── vercel.json
+│       ├── projects.json                    # Showcase projects & achievements
+│       └── brands.json                      # Brand assets registry
+├── .gitignore                               # Git ignore rules
+├── index.html                               # HTML entry point
+├── live_preview.js                          # Lightweight local dev server
+├── package.json                             # Dependencies & scripts
+└── vercel.json                              # Vercel deployment config
 ```
 
 ---
 
-## 3. Quick Start & Asset Automation Commands
+## 3. Quick Start & Execution Workflow
 
 ```bash
 # 1. Install dependencies
 npm install
 
-# 2. Download all 28 assets (cutout, 11 certificates, brand SVGs) from GitHub Raw CDN
+# 2. Automatically download all 28 assets from GitHub Raw CDN
 npm run download
 
-# 3. Build production bundle (esbuild bundles src/app.jsx -> Asset/dist/app.js)
+# 3. Compile React & CSS bundle into Asset/dist/
 npm run build
 
-# 4. Verify all files
+# 4. Verify all files and build health
 npm run check
 
-# 5. Start local preview server
+# 5. Launch local preview server (http://localhost:4173)
 npm run dev
-# -> Listening at http://localhost:4173
+# or: node live_preview.js
 ```
 
 ---
 
-## 4. Configuration Files
+## 4. Configuration & Core Files
 
 ### `package.json`
 ```json
@@ -127,15 +121,13 @@ npm run dev
 
 ### `.gitignore`
 ```gitignore
-# Dependencies
 node_modules/
 package-lock.json
-
-# System and OS files
 .DS_Store
 Thumbs.db
 *.log
-* s.svg
+*.pdf
+Asset/cv/
 ```
 
 ### `index.html`
@@ -170,8 +162,23 @@ Thumbs.db
 import { build } from 'esbuild';
 
 await Promise.all([
-  build({ entryPoints: ['src/app.jsx'], bundle: true, minify: true, sourcemap: true, outfile: 'Asset/dist/app.js', loader: { '.jsx': 'jsx' }, jsx: 'automatic', target: ['es2020'], define: { 'process.env.NODE_ENV': '"production"' } }),
-  build({ entryPoints: ['src/styles.css'], minify: true, sourcemap: true, outfile: 'Asset/dist/app.css' })
+  build({
+    entryPoints: ['src/app.jsx'],
+    bundle: true,
+    minify: true,
+    sourcemap: true,
+    outfile: 'Asset/dist/app.js',
+    loader: { '.jsx': 'jsx' },
+    jsx: 'automatic',
+    target: ['es2020'],
+    define: { 'process.env.NODE_ENV': '"production"' }
+  }),
+  build({
+    entryPoints: ['src/styles.css'],
+    minify: true,
+    sourcemap: true,
+    outfile: 'Asset/dist/app.css'
+  })
 ]);
 
 console.log('Portfolio built: index.html + Asset/dist/app.js + Asset/dist/app.css');
@@ -191,11 +198,11 @@ const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
 const BASE_URL = process.env.ASSET_BASE_URL || `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}`;
 
 const filesToDownload = [
-  // Studio Portrait Cutout & Favicon
+  // Cutout Portrait & Favicon
   { url: `${BASE_URL}/Asset/img/shikshanand-portrait.png`, dest: 'Asset/img/shikshanand-portrait.png' },
   { url: `${BASE_URL}/Asset/img/favicon.svg`, dest: 'Asset/img/favicon.svg' },
 
-  // 11 Verified Certificates
+  // 11 Verified Credential Certificates
   { url: `${BASE_URL}/Asset/img/certificates/shiksha_nand_cert.png`, dest: 'Asset/img/certificates/shiksha_nand_cert.png' },
   { url: `${BASE_URL}/Asset/img/certificates/hkcl_logo.png`, dest: 'Asset/img/certificates/hkcl_logo.png' },
   { url: `${BASE_URL}/Asset/img/certificates/oracle_ai_cert.png`, dest: 'Asset/img/certificates/oracle_ai_cert.png' },
@@ -306,7 +313,6 @@ const MIME_TYPES = {
   '.svg': 'image/svg+xml',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
-  '.pdf': 'application/pdf',
   '.map': 'application/json'
 };
 
@@ -343,3 +349,31 @@ server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
 ```
+
+### `src/data/brands.json`
+```json
+[
+  { "file": "iitdelhi.svg", "name": "eDC IIT Delhi" },
+  { "file": "oracle.svg", "name": "Oracle" },
+  { "file": "google.svg", "name": "Google Cloud" },
+  { "file": "microsoft.svg", "name": "Microsoft" },
+  { "file": "hkcl.svg", "name": "HKCL" },
+  { "file": "java.svg", "name": "Java" },
+  { "file": "python.svg", "name": "Python" },
+  { "file": "android.svg", "name": "Android Studio" },
+  { "file": "github.svg", "name": "GitHub" },
+  { "file": "wordpress.svg", "name": "WordPress" },
+  { "file": "esp32.svg", "name": "ESP32 Microcontroller" },
+  { "file": "vscode.svg", "name": "VS Code" }
+]
+```
+
+---
+
+## 5. Clean Environment Guarantee
+
+To ensure **zero bloat**, any AI creating this repository must only create the above files. Do not create:
+- Temporary image conversion scripts (`convert_*.mjs`, `crop_*.py`)
+- Test scripts (`test_*.mjs`, `inspect_*.mjs`)
+- Unused stylesheets or build caches
+- Duplicate asset directories
