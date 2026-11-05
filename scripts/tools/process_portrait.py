@@ -3,7 +3,7 @@ import numpy as np
 from PIL import Image
 
 src_path = r"C:\Users\Anand\.gemini\antigravity\brain\7651f15c-43b9-438c-9a84-d0f614e2654a\shikshanand_portrait_white_bg_smile_1793756567889.jpg"
-out_path = r"C:\Users\Anand\Desktop\College Codes\S.N.M. NEW Portfolio\Asset\img\shikshanand-portrait.png"
+out_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "Asset", "img", "shikshanand-portrait.png"))
 
 # Read image
 img_bgr = cv2.imread(src_path)
@@ -63,6 +63,6 @@ pil_img = Image.fromarray(rgba)
 pil_img.save(out_path, format="PNG", optimize=True)
 
 # Also update renando-portrait.png for backwards compatibility if needed
-pil_img.save(r"C:\Users\Anand\Desktop\College Codes\S.N.M. NEW Portfolio\Asset\img\renando-portrait.png", format="PNG", optimize=True)
+pil_img.save(out_path, format="PNG", optimize=True)
 
 print(f"Successfully generated transparent portrait: {out_path} ({target_w}x{target_h})")

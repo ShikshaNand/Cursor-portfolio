@@ -3,7 +3,7 @@ import numpy as np
 import os
 import glob
 
-cert_dir = r"C:\Users\Anand\Desktop\College Codes\S.N.M. NEW Portfolio\Asset\img\certificates"
+cert_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "Asset", "img", "certificates"))
 files = glob.glob(os.path.join(cert_dir, "*.png"))
 
 for f in files:
