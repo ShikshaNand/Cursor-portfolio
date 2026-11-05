@@ -57,16 +57,17 @@ export function Hero({ onProject }) {
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 0.2 }}
       >
-        <picture>
-          <source srcSet="./Asset/img/shikshanand-portrait.webp" type="image/webp" />
-          <img
-            src="./Asset/img/shikshanand-portrait.png"
-            alt="Shiksha Nand portrait with studio lighting"
-            width="1024"
-            height="1536"
-            fetchPriority="high"
-          />
-        </picture>
+        <img
+          src="./Asset/img/shikshanand-portrait.webp"
+          alt="Shiksha Nand portrait with studio lighting"
+          width="1024"
+          height="1536"
+          fetchPriority="high"
+          onError={e => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = './Asset/img/shikshanand-portrait.png';
+          }}
+        />
       </motion.div>
       <motion.div
         className="hero-intro"

@@ -124,6 +124,12 @@ html[data-motion=off] .recognition-row,
 html.swarm-active [style*="opacity"],
 html.swarm-active .recognition-row,
 html[data-swarm="on"] .recognition-row{opacity:1!important;transform:none!important}
+html[data-motion=off] .hero-portrait,
+html[data-motion=off] .hero-portrait img,
+html.swarm-active .hero-portrait,
+html.swarm-active .hero-portrait img,
+html[data-swarm="on"] .hero-portrait,
+html[data-swarm="on"] .hero-portrait img{opacity:1!important;visibility:visible!important;display:block!important}
 html[data-motion=off] .additional-award,
 html.swarm-active .additional-award,
 html[data-swarm="on"] .additional-award{display:flex!important}
