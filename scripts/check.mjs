@@ -10,6 +10,7 @@ const requiredFiles = [
   'Asset/dist/app.js',
   'Asset/dist/app.css',
   'Asset/img/shikshanand-portrait.png',
+  'Asset/img/shikshanand-portrait.webp',
   'Asset/img/favicon.svg',
   'Asset/img/certificates/shiksha_nand_cert.png',
   'Asset/img/certificates/hkcl_logo.png',

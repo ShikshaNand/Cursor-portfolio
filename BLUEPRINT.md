@@ -4,26 +4,28 @@
 > When executing or generating from this blueprint, create **ONLY the strictly necessary files** listed in Section 2.
 > - **DO NOT** create redundant helper scripts, test files, temporary converters, or duplicate styling.
 > - **DO NOT** include any resume PDF files.
-> - All 28 media assets (transparent cutout portrait, 11 verified certificate PNGs, and tech stack SVGs) are automated via `npm run download` directly from GitHub Raw CDN.
+> - All media assets (transparent cutout portrait in WebP/PNG, 11 verified certificate PNGs, and tech stack SVGs) are automated via `npm run download` directly from GitHub Raw CDN.
 
 ---
 
 ## 1. Project Specifications
 
-- **Palette:** Cinematic Dark Theme (`#090909` background, `#101010` panels, `#f2efeb` ink, `#ef4151` red accent, `#a09c9a` muted text).
+- **Palette:** Dual Cinema Theme Engine — Dark Theme (`#090909` background, `#101010` panels, `#f2efeb` ink, `#ef4151` red accent, `#a09c9a` muted text) and Warm Editorial Light Theme (`#f8f6f2` canvas, `#ffffff` panels, `#111010` ink, `#d82335` red, `#645f5b` muted text).
 - **Typography:** **Anton** (display font for headers & metrics), **Manrope** (body font 400-800), **Caveat** (handwritten accent). Loaded via Google Fonts in `index.html`.
 - **Motion:** Framer Motion 12 with custom cubic-bezier easing `[0.22, 1, 0.36, 1]`.
 - **Interactions:**
+  - **Dual Cinema Theme Engine:** Interactive theme toggle with persistent `localStorage` cache, zero-flicker pre-render detection, and smooth 350ms ambient transitions.
   - **Dynamic Typewriter Hero Role:** Character-by-character typewriter animation cycling through 5 technical identities with a blinking red cursor (`SOFTWARE DEVELOPER`, `CREATIVE TECHNOLOGIST`, `FULL STACK WEB DEVELOPER`, `IOT & EMBEDDED SYSTEMS BUILDER`, `GENERATIVE AI EXPLORER`).
   - **Swarm Rebuild Automation:** Multi-agent cursor simulation (`Swarm Build`) assembling the live DOM, calibrated to build all 11 verified certifications in full sequence.
-  - Magnetic custom cursor ring & dot (`CustomCursor`).
-  - Dual-layer transparent studio portrait with scroll parallax.
-  - Infinite auto-scrolling brand logo rail (`BrandStrip`).
-  - Filterable project gallery with category pills & instant search.
-  - Interactive Project Dialog modal with stage transitions.
-  - Laurel wreath badge: `11+ VERIFIED CREDENTIALS` linking to verified eDC IIT Delhi certificate modal.
-  - Interactive Experience accordion with smooth open/close.
-  - Contact brief form with direct `mailto:` draft generation (`Open in Mail`).
+  - **Magnetic Custom Cursor:** Custom spring-loaded cursor ring & dot (`CustomCursor`).
+  - **High-Performance Portrait:** Dual-layer transparent studio portrait with `<picture>` element serving high-speed WebP (`278 KB`) with PNG fallback.
+  - **Interactive Brand Strip:** Smooth auto-scrolling brand logo rail (`BrandStrip`) with pause/play toggle, arrow controls, and grid expander. In light mode, logos automatically adapt with dynamic filter inversion for high clarity.
+  - **Filterable Portfolio:** Category filter pills and instant search over software projects, IoT firmware architectures, and Android applications.
+  - **Honors & Recognitions (`Awards`):** Laurel wreath badge: `11+ VERIFIED CREDENTIALS`, responsive click-to-view certificate dialogs, and smooth card elevation.
+  - **Verified Certifications List (`Journey`):** Interactive certificates list with text enlargement and signature red color transition on hover without card box expansion.
+  - **Featured Showcase Card (`Contact`):** Tilted photo card with cinematic dark hover transition, increased photo contrast, vignette depth, and glowing red accent border.
+  - **Direct Mailto Contact:** "START A CONVERSATION" button and message brief form opening directly in the default mail app with pre-filled details.
+  - **Accessible Project Dialog Modal:** Focus trapping, `aria-modal="true"`, and keyboard `Escape` dismissal.
   - Synthesized background music muted while subtle UI click/typing sound effects are preserved.
   - Location: India.
 
@@ -39,21 +41,41 @@ Cursor-portfolio/
 │   │   └── app.css                          # Compiled by npm run build
 │   ├── img/
 │   │   ├── certificates/                    # 11 verified credentials (automated via npm run download)
-│   │   ├── shikshanand-portrait.png         # Studio cutout (automated)
+│   │   ├── shikshanand-portrait.png         # Studio cutout fallback (automated)
+│   │   ├── shikshanand-portrait.webp        # Modern optimized WebP (278 KB)
 │   │   └── favicon.svg                      # Custom vector favicon (automated)
 │   └── svg/brand/                           # 12 tech stack SVGs (automated)
 ├── scripts/
 │   ├── build.mjs                            # esbuild compiler for app.js & app.css
 │   ├── check.mjs                            # Verification script
-│   └── download_assets.mjs                  # Automated GitHub Raw CDN asset puller
+│   ├── dev.mjs                              # Development watch mode
+│   ├── download_assets.mjs                  # Automated GitHub Raw CDN asset puller
+│   └── tools/                               # Maintenance & conversion utilities
 ├── src/
-│   ├── app.jsx                              # Core React application
-│   ├── styles.css                           # Production CSS styles
+│   ├── app.jsx                              # Concise main application orchestrator
+│   ├── constants.js                         # Shared data, experiences, certificates
+│   ├── styles.css                           # Production CSS styles & theme engine
+│   ├── components/                          # Modular React components
+│   │   ├── Common.jsx                       # Reveal, MediaImage, Magnetic
+│   │   ├── CustomCursor.jsx                 # Spring-loaded custom cursor
+│   │   ├── Header.jsx                       # Navigation & toolbar
+│   │   ├── Hero.jsx                         # Hero section & portrait
+│   │   ├── Portfolio.jsx                    # Projects grid & brand carousel
+│   │   ├── Awards.jsx                       # Verified credentials & honors
+│   │   ├── Breakdown.jsx                    # Interactive comparison slider
+│   │   ├── About.jsx                        # Education, toolkit & process
+│   │   ├── Journey.jsx                      # Experience milestones
+│   │   ├── Contact.jsx                      # Contact links & brief form
+│   │   └── ProjectDialog.jsx                # Accessible modal dialog
+│   ├── hooks/                               # Custom React hooks
+│   │   ├── useTheme.js                      # Theme engine with localStorage sync
+│   │   └── useTypewriter.js                 # Terminal typewriter effect
 │   └── data/
 │       ├── projects.json                    # Showcase projects & achievements
 │       └── brands.json                      # Brand assets registry
 ├── .gitignore                               # Git ignore rules
-├── index.html                               # HTML entry point
+├── DEPLOYMENT.md                            # Vercel & custom domain setup guide
+├── index.html                               # HTML entry point (SEO + JSON-LD)
 ├── live_preview.js                          # Lightweight local dev server
 ├── package.json                             # Dependencies & scripts
 └── vercel.json                              # Vercel deployment config
@@ -67,7 +89,7 @@ Cursor-portfolio/
 # 1. Install dependencies
 npm install
 
-# 2. Automatically download all 28 assets from GitHub Raw CDN
+# 2. Automatically download all assets from GitHub Raw CDN
 npm run download
 
 # 3. Compile React & CSS bundle into Asset/dist/
@@ -77,8 +99,8 @@ npm run build
 npm run check
 
 # 5. Launch local preview server (http://localhost:4173)
-npm run dev
-# or: node live_preview.js
+npm run start
+# or watch mode: npm run dev
 ```
 
 ---
@@ -91,6 +113,7 @@ npm run dev
   "name": "shiksha-nand-portfolio",
   "version": "2.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
     "dev": "node scripts/dev.mjs",
@@ -138,17 +161,64 @@ Asset/cv/
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#090909" />
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('snm-portfolio-theme');
+        if (t === 'light' || (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+          document.documentElement.dataset.theme = 'light';
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', '#f8f6f2');
+        } else {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      } catch(e){}
+    })();
+  </script>
   <meta name="description" content="Shiksha Nand (S.N.M.) — Bachelor of Computer Applications (BCA) Student, Software Developer & Creative Technologist based in India. Core Java, Python, Web Development, Generative AI & IoT." />
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="SHIKSHA NAND | Software Developer & Creative Technologist" />
   <meta property="og:description" content="Motivated BCA student with a strong foundation in programming, web development, cloud basics, and Generative AI tools." />
+  <meta property="og:image" content="./Asset/img/shikshanand-portrait.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SHIKSHA NAND | Software Developer & Creative Technologist" />
+  <meta name="twitter:description" content="Bachelor of Computer Applications (BCA) Student, Software Developer & Creative Technologist based in India. Core Java, Python, Web Development, Generative AI & IoT." />
+  <meta name="twitter:image" content="./Asset/img/shikshanand-portrait.webp" />
   <title>SHIKSHA NAND | Software Developer & Creative Technologist</title>
   <link rel="icon" href="./Asset/img/favicon.svg" type="image/svg+xml" />
-  <link rel="preload" href="./Asset/img/shikshanand-portrait.png" as="image" fetchpriority="high" />
+  <link rel="preload" href="./Asset/img/shikshanand-portrait.webp" as="image" type="image/webp" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./Asset/dist/app.css" />
   <script src="./Asset/dist/app.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shiksha Nand",
+    "alternateName": "S.N.M.",
+    "jobTitle": "Software Developer & Creative Technologist",
+    "sameAs": [
+      "https://www.linkedin.com/in/shikshanand",
+      "https://github.com/ShikshaNand"
+    ],
+    "knowsAbout": [
+      "Java",
+      "Python",
+      "React",
+      "Web Development",
+      "Cybersecurity",
+      "Generative AI",
+      "IoT",
+      "ESP32"
+    ],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "M.M. College, Fatehabad (CDLU)"
+    }
+  }
+  </script>
 </head>
 <body>
   <div id="root"></div>
@@ -184,77 +254,6 @@ await Promise.all([
 console.log('Portfolio built: index.html + Asset/dist/app.js + Asset/dist/app.css');
 ```
 
-### `scripts/download_assets.mjs`
-```javascript
-import fs from 'node:fs';
-import path from 'node:path';
-import { pipeline } from 'node:stream/promises';
-import { Readable } from 'node:stream';
-
-const GITHUB_USER = process.env.GITHUB_USER || 'ShikshaNand';
-const GITHUB_REPO = process.env.GITHUB_REPO || 'Cursor-portfolio';
-const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main';
-
-const BASE_URL = process.env.ASSET_BASE_URL || `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}`;
-
-const filesToDownload = [
-  // Cutout Portrait & Favicon
-  { url: `${BASE_URL}/Asset/img/shikshanand-portrait.png`, dest: 'Asset/img/shikshanand-portrait.png' },
-  { url: `${BASE_URL}/Asset/img/favicon.svg`, dest: 'Asset/img/favicon.svg' },
-
-  // 11 Verified Credential Certificates
-  { url: `${BASE_URL}/Asset/img/certificates/shiksha_nand_cert.png`, dest: 'Asset/img/certificates/shiksha_nand_cert.png' },
-  { url: `${BASE_URL}/Asset/img/certificates/hkcl_logo.png`, dest: 'Asset/img/certificates/hkcl_logo.png' },
-  { url: `${BASE_URL}/Asset/img/certificates/oracle_ai_cert.png`, dest: 'Asset/img/certificates/oracle_ai_cert.png' },
-  { url: `${BASE_URL}/Asset/img/certificates/coursera_cybersecurity_cert.png`, dest: 'Asset/img/certificates/coursera_cybersecurity_cert.png' },
-  { url: `${BASE_URL}/Asset/img/certificates/microsoft_genai_cert.png`, dest: 'Asset/img/certificates/microsoft_genai_cert.png' },
-  { url: `${BASE_URL}/Asset/img/certificates/what_is_generative_ai_cert.png`, dest: 'Asset/img/certificates/what_is_generative_ai_cert.png' },
-  { url: `${BASE_URL}/Asset/img/certificates/streamlining_microsoft_copilot_cert.png`, dest: 'Asset/img/certificates/streamlining_microsoft_copilot_cert.png' },
-  { url: `${BASE_URL}/Asset/img/certificates/generative_ai_online_search_cert.png`, dest: 'Asset/img/certificates/generative_ai_online_search_cert.png' },
-  { url: `${BASE_URL}/Asset/img/certificates/microsoft_copilot_cert.png`, dest: 'Asset/img/certificates/microsoft_copilot_cert.png' },
-  { url: `${BASE_URL}/Asset/img/certificates/intro_ai_cert.png`, dest: 'Asset/img/certificates/intro_ai_cert.png' },
-  { url: `${BASE_URL}/Asset/img/certificates/ethics_ai_cert.png`, dest: 'Asset/img/certificates/ethics_ai_cert.png' },
-
-  // Brand Stack SVGs
-  { url: `${BASE_URL}/Asset/svg/brand/iitdelhi.svg`, dest: 'Asset/svg/brand/iitdelhi.svg' },
-  { url: `${BASE_URL}/Asset/svg/brand/oracle.svg`, dest: 'Asset/svg/brand/oracle.svg' },
-  { url: `${BASE_URL}/Asset/svg/brand/google.svg`, dest: 'Asset/svg/brand/google.svg' },
-  { url: `${BASE_URL}/Asset/svg/brand/microsoft.svg`, dest: 'Asset/svg/brand/microsoft.svg' },
-  { url: `${BASE_URL}/Asset/svg/brand/hkcl.svg`, dest: 'Asset/svg/brand/hkcl.svg' },
-  { url: `${BASE_URL}/Asset/svg/brand/java.svg`, dest: 'Asset/svg/brand/java.svg' },
-  { url: `${BASE_URL}/Asset/svg/brand/python.svg`, dest: 'Asset/svg/brand/python.svg' },
-  { url: `${BASE_URL}/Asset/svg/brand/android.svg`, dest: 'Asset/svg/brand/android.svg' },
-  { url: `${BASE_URL}/Asset/svg/brand/github.svg`, dest: 'Asset/svg/brand/github.svg' },
-  { url: `${BASE_URL}/Asset/svg/brand/wordpress.svg`, dest: 'Asset/svg/brand/wordpress.svg' },
-  { url: `${BASE_URL}/Asset/svg/brand/esp32.svg`, dest: 'Asset/svg/brand/esp32.svg' },
-  { url: `${BASE_URL}/Asset/svg/brand/vscode.svg`, dest: 'Asset/svg/brand/vscode.svg' }
-];
-
-async function download(item) {
-  const destPath = path.resolve(item.dest);
-  fs.mkdirSync(path.dirname(destPath), { recursive: true });
-  const res = await fetch(item.url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
-  if (!res.ok) throw new Error(`Failed to download ${item.url}: ${res.status}`);
-  const fileStream = fs.createWriteStream(destPath);
-  await pipeline(Readable.fromWeb(res.body), fileStream);
-  console.log(`✓ Downloaded: ${item.dest}`);
-}
-
-async function main() {
-  console.log(`Downloading ${filesToDownload.length} assets from ${BASE_URL}...`);
-  for (let i = 0; i < filesToDownload.length; i += 5) {
-    const chunk = filesToDownload.slice(i, i + 5);
-    await Promise.all(chunk.map(download));
-  }
-  console.log(`\nAll assets downloaded and verified locally!`);
-}
-
-main().catch(err => {
-  console.error(err);
-  process.exit(1);
-});
-```
-
 ### `scripts/check.mjs`
 ```javascript
 import fs from 'node:fs';
@@ -269,6 +268,7 @@ const requiredFiles = [
   'Asset/dist/app.js',
   'Asset/dist/app.css',
   'Asset/img/shikshanand-portrait.png',
+  'Asset/img/shikshanand-portrait.webp',
   'Asset/img/favicon.svg',
   'Asset/img/certificates/shiksha_nand_cert.png',
   'Asset/img/certificates/hkcl_logo.png',
@@ -282,11 +282,17 @@ const requiredFiles = [
 let allOk = true;
 for (const file of requiredFiles) {
   const p = path.resolve(file);
-  if (!fs.existsSync(p) || fs.statSync(p).size === 0) {
-    console.error(`Missing or empty file: ${file}`);
+  if (!fs.existsSync(p)) {
+    console.error(`Missing file: ${file}`);
     allOk = false;
   } else {
-    console.log(`✓ ${file} (${fs.statSync(p).size} bytes)`);
+    const stat = fs.statSync(p);
+    if (stat.size === 0) {
+      console.error(`Empty file: ${file}`);
+      allOk = false;
+    } else {
+      console.log(`✓ ${file} (${stat.size} bytes)`);
+    }
   }
 }
 
@@ -294,86 +300,12 @@ if (!allOk) process.exit(1);
 console.log('\nAll checks passed!');
 ```
 
-### `live_preview.js`
-```javascript
-import http from 'node:http';
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const PORT = process.env.PORT || 4173;
-
-const MIME_TYPES = {
-  '.html': 'text/html; charset=utf-8',
-  '.js': 'application/javascript; charset=utf-8',
-  '.css': 'text/css; charset=utf-8',
-  '.json': 'application/json; charset=utf-8',
-  '.svg': 'image/svg+xml',
-  '.png': 'image/png',
-  '.jpg': 'image/jpeg',
-  '.map': 'application/json'
-};
-
-const server = http.createServer((req, res) => {
-  const urlPath = decodeURIComponent(req.url.split('?')[0]);
-  let filePath = path.join(__dirname, urlPath === '/' ? 'index.html' : urlPath);
-
-  if (!filePath.startsWith(__dirname)) {
-    res.writeHead(403);
-    res.end('Forbidden');
-    return;
-  }
-
-  fs.stat(filePath, (err, stats) => {
-    if (err || !stats.isFile()) {
-      if (stats && stats.isDirectory()) {
-        filePath = path.join(filePath, 'index.html');
-      } else {
-        res.writeHead(404);
-        res.end('Not Found');
-        return;
-      }
-    }
-    const ext = path.extname(filePath).toLowerCase();
-    res.writeHead(200, {
-      'Content-Type': MIME_TYPES[ext] || 'application/octet-stream',
-      'Access-Control-Allow-Origin': '*'
-    });
-    fs.createReadStream(filePath).pipe(res);
-  });
-});
-
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
-```
-
-### `src/data/brands.json`
-```json
-[
-  { "file": "iitdelhi.svg", "name": "eDC IIT Delhi" },
-  { "file": "oracle.svg", "name": "Oracle" },
-  { "file": "google.svg", "name": "Google Cloud" },
-  { "file": "microsoft.svg", "name": "Microsoft" },
-  { "file": "hkcl.svg", "name": "HKCL" },
-  { "file": "java.svg", "name": "Java" },
-  { "file": "python.svg", "name": "Python" },
-  { "file": "android.svg", "name": "Android Studio" },
-  { "file": "github.svg", "name": "GitHub" },
-  { "file": "wordpress.svg", "name": "WordPress" },
-  { "file": "esp32.svg", "name": "ESP32 Microcontroller" },
-  { "file": "vscode.svg", "name": "VS Code" }
-]
-```
-
 ---
 
 ## 5. Clean Environment Guarantee
 
 To ensure **zero bloat**, any AI creating this repository must only create the above files. Do not create:
-- Temporary image conversion scripts (`convert_*.mjs`, `crop_*.py`)
+- Temporary image conversion scripts in the root
 - Test scripts (`test_*.mjs`, `inspect_*.mjs`)
 - Unused stylesheets or build caches
 - Duplicate asset directories

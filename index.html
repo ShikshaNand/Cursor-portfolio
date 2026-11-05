@@ -4,17 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#090909" />
+  <script>
+    (function(){
+      try {
+        var t = localStorage.getItem('snm-portfolio-theme');
+        if (t === 'light' || (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+          document.documentElement.dataset.theme = 'light';
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', '#f8f6f2');
+        } else {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      } catch(e){}
+    })();
+  </script>
   <meta name="description" content="Shiksha Nand (S.N.M.) — Bachelor of Computer Applications (BCA) Student, Software Developer & Creative Technologist based in India. Core Java, Python, Web Development, Generative AI & IoT." />
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="SHIKSHA NAND | Software Developer & Creative Technologist" />
   <meta property="og:description" content="Motivated BCA student with a strong foundation in programming, web development, cloud basics, and Generative AI tools." />
+  <meta property="og:image" content="./Asset/img/shikshanand-portrait.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SHIKSHA NAND | Software Developer & Creative Technologist" />
+  <meta name="twitter:description" content="Bachelor of Computer Applications (BCA) Student, Software Developer & Creative Technologist based in India. Core Java, Python, Web Development, Generative AI & IoT." />
+  <meta name="twitter:image" content="./Asset/img/shikshanand-portrait.webp" />
   <title>SHIKSHA NAND | Software Developer & Creative Technologist</title>
   <link rel="icon" href="./Asset/img/favicon.svg" type="image/svg+xml" />
-  <link rel="preload" href="./Asset/img/shikshanand-portrait.png" as="image" fetchpriority="high" />
+  <link rel="preload" href="./Asset/img/shikshanand-portrait.webp" as="image" type="image/webp" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./Asset/dist/app.css" />
   <script src="./Asset/dist/app.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shiksha Nand",
+    "alternateName": "S.N.M.",
+    "jobTitle": "Software Developer & Creative Technologist",
+    "sameAs": [
+      "https://www.linkedin.com/in/shikshanand",
+      "https://github.com/ShikshaNand"
+    ],
+    "knowsAbout": [
+      "Java",
+      "Python",
+      "React",
+      "Web Development",
+      "Cybersecurity",
+      "Generative AI",
+      "IoT",
+      "ESP32"
+    ],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "M.M. College, Fatehabad (CDLU)"
+    }
+  }
+  </script>
 </head>
 <body>
   <div id="root"></div>

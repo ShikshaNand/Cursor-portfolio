@@ -22,6 +22,7 @@ This portfolio combines editorial typography, dark cinematic aesthetics, and flu
 
 - **Design Philosophy:** Minimalist cinema dark palette (`#090909`, `#ef4151`, `#f2efeb`) with high-contrast typography (`Anton` display + `Manrope` body).
 - **Physics & Motion:** 60fps buttery animations, spring-loaded magnetic cursors, and custom cubic-bezier easing `[0.22, 1, 0.36, 1]`.
+- **Dual Cinema Theme Engine:** Seamless Dark / Light mode switcher with zero flash of unstyled content (FOUC), warm studio paper palette (`#f8f6f2`), pure white panels, and smooth 350ms ambient transitions.
 - **Dynamic Typewriter Headline:** Interactive character-by-character typewriter effect in the hero section cycling through 5 engineering roles with an authentic terminal-style blinking cursor.
 - **Swarm Rebuild Integration:** Multi-agent cursor simulation (`Swarm Build`) assembling the live DOM, calibrated to build all 11 verified certifications in full sequence.
 - **Zero Heavy Framework Overhead:** Bundled via `esbuild` into high-speed static production assets (`Asset/dist/app.js` + `Asset/dist/app.css`).
@@ -39,22 +40,41 @@ Cursor-portfolio/
 │   │   └── app.css                          # Production styles
 │   ├── img/
 │   │   ├── certificates/                    # 11 authentic credential images
-│   │   ├── shikshanand-portrait.png         # Transparent studio cutout
+│   │   ├── shikshanand-portrait.png         # High-res studio cutout (fallback)
+│   │   ├── shikshanand-portrait.webp        # Modern optimized WebP (278 KB)
 │   │   └── favicon.svg                      # Custom vector favicon
 │   └── svg/brand/                           # 12 tech stack SVGs (VS Code, Android, Java, etc.)
 ├── scripts/
 │   ├── build.mjs                            # Fast esbuild bundle generator
 │   ├── check.mjs                            # Integrity verification script
-│   └── download_assets.mjs                  # Automated GitHub Raw CDN asset puller
+│   ├── dev.mjs                              # Local watch build
+│   ├── download_assets.mjs                  # Automated GitHub Raw CDN asset puller
+│   └── tools/                               # Maintenance & conversion utilities
 ├── src/
-│   ├── app.jsx                              # Main React application & layout
+│   ├── app.jsx                              # Main application orchestrator
+│   ├── constants.js                         # Shared data, experiences, certificates
 │   ├── styles.css                           # Modular stylesheet & CSS variables
+│   ├── components/                          # Modular React components
+│   │   ├── Common.jsx                       # Reveal, MediaImage, Magnetic
+│   │   ├── CustomCursor.jsx                 # Custom spring-loaded cursor
+│   │   ├── Header.jsx                       # Navigation & toolbar
+│   │   ├── Hero.jsx                         # Hero section & portrait
+│   │   ├── Portfolio.jsx                    # Projects grid & brand carousel
+│   │   ├── Awards.jsx                       # Verified credentials & honors
+│   │   ├── Breakdown.jsx                    # Interactive comparison slider
+│   │   ├── About.jsx                        # Education, toolkit & process
+│   │   ├── Journey.jsx                      # Experience milestones
+│   │   ├── Contact.jsx                      # Contact links & brief form
+│   │   └── ProjectDialog.jsx                # Accessible modal dialog
+│   ├── hooks/                               # Custom React hooks
+│   │   ├── useTheme.js                      # Theme engine with localStorage sync
+│   │   └── useTypewriter.js                 # Terminal typewriter effect
 │   └── data/
 │       ├── projects.json                    # Showcase projects & achievements
 │       └── brands.json                      # Brand assets registry
 ├── BLUEPRINT.md                             # Complete portable prompt blueprint
 ├── DEPLOYMENT.md                            # Vercel & custom domain setup guide
-├── index.html                               # Production entry HTML
+├── index.html                               # Production entry HTML (SEO + JSON-LD)
 ├── live_preview.js                          # Zero-dependency local dev server
 ├── package.json                             # NPM scripts & dependencies
 └── vercel.json                              # Vercel static build configuration
